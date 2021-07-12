@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>welcom to my page</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<a href="#demo1">1.将10进制浮点数转换成64进制</a>
+	<div id="demo1" class="ele-wrap">
+		<label for="number">10进制浮点数</label>
+		<input id="number" type="text" name="number" placeholder="请输入10进制浮点数">
+		<button onclick="convert();">转换64进制>></button>
+		<span id="result"></span>
+	</div>
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript">
+		function convert() {
+			let number = getEleById('number');
+			let result = getEleById('result');
+			let value = tenToSixtyFourDecimal(number.value - 0);
+			result.innerText = value;
+		}
+	</script>
+</body>
+</html>
