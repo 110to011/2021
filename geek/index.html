@@ -7,21 +7,64 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<a href="#demo1">1.将10进制浮点数转换成64进制</a>
-	<div id="demo1" class="ele-wrap">
-		<label for="number">10进制浮点数</label>
-		<input id="number" type="text" name="number" placeholder="请输入10进制浮点数">
-		<button onclick="convert();">转换64进制>></button>
-		<span id="result"></span>
-	</div>
+	<details>
+		<summary>1.将10进制浮点数转换成64进制</summary>
+		<div id="demo1" class="ele-wrap">
+			<label for="number">10进制浮点数</label>
+			<input id="number" type="text" name="number" placeholder="请输入10进制浮点数">
+			<button class="button lightblue" onclick="convert();">转换64进制>></button>
+			<span id="result"></span>
+		</div>
+	</details>
+	<details>
+		<summary>2.读取本地图片转换成灰度图保存</summary>
+		<div id="demo2" class="ele-wrap">
+		 <input type="file" onchange="loadImg()"/>
+		 <div class="scream">
+		 	<img class="inline-blk" id="scream" alt="Image Part">
+		 	<button class="inline-blk button lightblue" onclick="convertImagetoGray()">灰度化</button>
+		 	<canvas class="hidden" id="canvas" width="400px;" height="300px;">
+			 	your browser does not support canvas!
+			 </canvas>
+		 </div>
+		</div>
+	</details>
 	<script type="text/javascript" src="util.js"></script>
 	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="imageToGray.js"></script>
 	<script type="text/javascript">
 		function convert() {
 			let number = getEleById('number');
 			let result = getEleById('result');
 			let value = tenToSixtyFourDecimal(number.value - 0);
 			result.innerText = value;
+		}
+		function loadImg(){
+		 let img = getEleById("scream");
+		 let file = document.querySelector('input[type=file]').files[0];
+		 if(!/image\/\w+/.test(file.type)){
+		   alert("文件必须为图片！");
+		   return false;
+		  }
+		  img.style.width = "400px";
+		  img.style.height = "300px";
+		  let reader = new FileReader();
+			reader.addEventListener("load", function () {
+				img.src = reader.result;
+			}, false);
+			if(file) {
+				reader.readAsDataURL(file);
+				loadCanvas();
+			}
+		}
+		//加载canvas图像
+		function loadCanvas(){
+			let myCanvas = getEleById("canvas");
+			let ctx = myCanvas.getContext("2d");
+			let img = getEleById("scream");
+			img.onload = function() {
+				ctx.drawImage(img, 0, 0 , 400, 300);
+			} 
 		}
 	</script>
 </body>

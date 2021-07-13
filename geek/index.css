@@ -1,9 +1,66 @@
 .ele-wrap {
-	margin-top: 20px;
+	margin: 20px;
 	padding: 30px 20px;
 	border: 1px solid #48bcef;
 }
 
+details {
+  margin: 20px 10px;
+  cursor: pointer;
+}
+
+summary:hover {
+  color: #48bcef;
+}
+
 #result {
 	color: #48bcef;
+  font-weight: bold;
+}
+
+.hidden {
+	display: none;
+}
+
+.inline-blk {
+	display: inline-block;
+  vertical-align: middle;
+}
+
+.button {
+	position:relative;
+	display: inline-block;
+	margin: 10px;
+  padding: 5px 15px;
+  text-decoration: none;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  font-family: "Lucida Grande",Lucida,Verdana,sans-serif;
+  outline: none;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #777;
+}
+
+.button:active {
+  top: 1px;
+  left:1px;
+}
+
+.lightblue {
+  background-color: #7FB0F0;
+  color: #FFF;
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+  font-weight: 100;
+}
+.lightblue:hover {
+  background-color: #7FA0C0;
 }
